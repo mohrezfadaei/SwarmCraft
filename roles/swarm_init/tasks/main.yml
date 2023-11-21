@@ -1,0 +1,13 @@
+---
+- name: Initialize Docker Swarm
+  docker_swarm:
+    state: present
+    advertise_addr: "{{ ansible_default_ipv4['address'] }}"
+
+- name: Get manager join token
+  shell: docker swarm join-token --quiet manager
+  register: manager_token
+
+- name: Get worker join token
+  shell: docker swarm join-token --quiet worker
+  register: worker_token

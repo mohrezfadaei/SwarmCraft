@@ -1,0 +1,21 @@
+---
+- name: Install pre-requisition
+  yum:
+    state: present
+    name: yum-utils
+
+- name: Add YUM repository
+  yum_repository:
+    name: docker
+    description: Docker YUM repo
+    base_url: "{{ docker_repo_base_url }}/{{ ansible_distribution | lower }}/docker-ce.repo"
+
+- name: Install Docker
+  yum:
+    state: present
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-compose-plugin

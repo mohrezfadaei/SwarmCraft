@@ -1,0 +1,8 @@
+---
+- name: If distribution is Debian-based
+  import_tasks: debian.yml
+  when: "'Ubuntu' in ansible_distribution or 'Debian' in ansible_distribution"
+
+- name: If distribution is RHEL-based
+  import_tasks: redhat.yml
+  when: "'RedHat' in ansible_distribution or 'CentOS' in ansible_distribution"

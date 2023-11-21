@@ -1,0 +1,3 @@
+---
+docker_gpg_key_base_url: https://download.docker.com/linux
+docker_repo_base_url: https://download.docker.com/linux
